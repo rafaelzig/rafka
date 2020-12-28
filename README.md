@@ -1,7 +1,5 @@
 # Background
 
-Received an emergency task to develop a “Pub/Sub” alike service server.
-
 ### Use case graph:
 
 <img src="./image/image1.png" width="700px">
@@ -12,14 +10,11 @@ Received an emergency task to develop a “Pub/Sub” alike service server.
 
 Publisher and Subscriber are other microservice servers inside the company.
 
-This emergency task is divided into 2 phases. Phase 1: Must release the server to production within
-one week. Phase 2: Another team will continue to improve the server based on your codes implemented
-and the phase2Plan.md you make in Phase 1. Please be aware that the team prefers modern technologies
-to stale ones and the team has 5 members who could work on Phase 2 for one month only.
+Phase 1: Must release the server to production within
+one week. 
 
-You only have about 8 hours to implement the server for phase 1 and system technical plan for phase
-2 because you have other scheduled assignments, you know, engineers’ life is tough like it always
-T_T
+Phase 2: Another team will continue to improve the server based on your codes implemented
+and the phase2Plan.md you make in Phase 1.
 
 # Requirements
 

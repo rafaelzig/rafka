@@ -1,0 +1,62 @@
+[
+  {
+    "apiName": "/message/get",
+    "method": "GET",
+    "path": "/message/get/foo"
+  },
+  {
+    "apiName": "/message/ack",
+    "method": "POST",
+    "path": "/message/ack/foo"
+  },
+  {
+    "apiName": "/message/get",
+    "method": "GET",
+    "path": "/message/get/bar"
+  },
+  {
+    "apiName": "/message/ack",
+    "method": "POST",
+    "path": "/message/ack/bar"
+  },
+  {
+    "apiName": "/message/get",
+    "method": "GET",
+    "path": "/message/get/hello"
+  },
+  {
+    "apiName": "/message/ack",
+    "method": "POST",
+    "path": "/message/ack/hello"
+  },
+  {
+    "apiName": "/message/get",
+    "method": "GET",
+    "path": "/message/get/world"
+  },
+  {
+    "apiName": "/message/ack",
+    "method": "POST",
+    "path": "/message/ack/world"
+  },
+  {
+    "apiName": "/message/get",
+    "method": "GET",
+    "path": "/message/get/sayonara"
+  },
+  {
+    "apiName": "/message/ack",
+    "method": "POST",
+    "path": "/message/ack/sayonara"
+  },
+  {
+    "apiName": "/message/get",
+    "method": "GET",
+    "path": "/message/get/sekai"
+  },
+  {
+    "apiName": "/message/ack",
+    "method": "POST",
+    "path": "/message/ack/sekai"
+  }
+]

@@ -1,0 +1,15 @@
+# Registers a new topic 'foo'
+## Preconditions
+### Parameter 'foo' must conform with the following regular expression: ^[^\s<>.?:;"*|\\/]{1,127}$
+### Accept header must include media-type application/json
+### Accept-Charset header must include charset utf-8
+## Success HTTP Response Status Codes
+### 201: Registered a new topic 'foo'
+## Failure HTTP Response Status Codes
+### 500: Internal server error
+### 409: Topic 'foo' is already registered
+### 406: Accept does not include media-type application/json or Accept-Charset header does not include charset utf-8
+### 400: Parameter 'foo' does not conform with the following regular expression: ^[^\s<>.?:;"*|\\/]{1,127}$
+POST http://localhost/topic/register/foo
+Accept: application/json
+Accept-Charset: utf-8

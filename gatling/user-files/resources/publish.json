@@ -1,0 +1,38 @@
+[
+  {
+    "apiName": "/message/publish",
+    "method": "POST",
+    "path": "/message/publish/foo",
+    "body": "{\"hello\":\"foo\"}"
+  },
+  {
+    "apiName": "/message/publish",
+    "method": "POST",
+    "path": "/message/publish/bar",
+    "body": "{\"hello\":\"bar\"}"
+  },
+  {
+    "apiName": "/message/publish",
+    "method": "POST",
+    "path": "/message/publish/hello",
+    "body": "{\"hello\":\"hello\"}"
+  },
+  {
+    "apiName": "/message/publish",
+    "method": "POST",
+    "path": "/message/publish/world",
+    "body": "{\"hello\":\"world\"}"
+  },
+  {
+    "apiName": "/message/publish",
+    "method": "POST",
+    "path": "/message/publish/sayonara",
+    "body": "{\"hello\":\"sayonara\"}"
+  },
+  {
+    "apiName": "/message/publish",
+    "method": "POST",
+    "path": "/message/publish/sekai",
+    "body": "{\"hello\":\"sekai\"}"
+  }
+]

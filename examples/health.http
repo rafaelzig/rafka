@@ -1,0 +1,6 @@
+# Queries the health of the server
+## Preconditions
+### Parameter 'foo' must conform with the following regular expression: ^[^\s<>.?:;"*|\\/]{1,127}$
+## Success HTTP Response Status Codes
+### 200: Server is healthy
+GET http://localhost/health

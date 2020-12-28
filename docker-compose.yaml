@@ -1,0 +1,103 @@
+version: '2.4'
+services:
+  rafka:
+    hostname: rafka
+    build: .
+    image: rafaeldasilvacosta/rafka:latest
+    environment:
+      SERVER_PORT: 8080
+      JAVA_OPTS: |
+        -server
+        -Djava.awt.headless=true
+        -XX:+UseSerialGC
+        -XX:InitialRAMPercentage=10
+        -XX:MinRAMPercentage=10
+        -XX:MaxRAMPercentage=100
+        -Duser.timezone=Asia/Tokyo
+        -Dfile.encoding=UTF-8
+        -Djava.io.tmpdir=/tmp
+        -Dcom.sun.management.jmxremote
+        -Dcom.sun.management.jmxremote.authenticate=false
+        -Dcom.sun.management.jmxremote.ssl=false
+        -Djava.rmi.server.hostname=localhost
+        -Dcom.sun.management.jmxremote.rmi.port=6060
+        -Dcom.sun.management.jmxremote.port=6060
+        -verbose:gc
+        -Xverbosegclog:/usr/local/var/log/rafka/gc.%seq.log,20,50000
+        -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:7070
+    volumes:
+      - rafka-tmp:/tmp:rw
+      - rafka-log:/usr/local/var/log/rafka:rw
+      - rafka-lib:/usr/local/var/lib/rafka:rw
+    ports:
+      - '6060:6060'
+      - '7070:7070'
+      - '80:8080'
+    expose:
+      - 6060
+      - 7070
+      - 8080
+    healthcheck:
+      test: [ "CMD", "curl", "--silent", "localhost:8080/health" ]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    networks:
+      current:
+        ipv4_address: 192.168.32.2
+
+  publisher:
+    hostname: publisher
+    image: denvazh/gatling:3.2.1
+    depends_on:
+      rafka:
+        condition: service_healthy
+    environment:
+      JAVA_OPTS: |
+        -Dprotocol=http
+        -Dtarget=rafka:8080
+        -Drps=200
+        -DrampUpDuration=1
+        -DholdDuration=1
+    command: --simulation com.mercari.merpay.pubsub.Publisher
+    volumes:
+      - ./gatling/user-files:/opt/gatling/user-files:rw
+      - ./gatling/results/publisher:/opt/gatling/results:rw
+    networks:
+      current:
+        ipv4_address: 192.168.32.3
+
+  subscriber:
+    hostname: subscriber
+    image: denvazh/gatling:3.2.1
+    depends_on:
+      rafka:
+        condition: service_healthy
+    environment:
+      JAVA_OPTS: |
+        -Dprotocol=http
+        -Dtarget=rafka:8080
+        -Drps=200
+        -DrampUpDuration=1
+        -DholdDuration=1
+    command: --simulation com.mercari.merpay.pubsub.Subscriber
+    volumes:
+      - ./gatling/user-files:/opt/gatling/user-files:rw
+      - ./gatling/results/subscriber:/opt/gatling/results:rw
+    networks:
+      current:
+        ipv4_address: 192.168.32.4
+
+networks:
+  current:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.32.0/24
+          gateway: 192.168.32.1
+
+volumes:
+  rafka-tmp:
+  rafka-log:
+  rafka-lib:

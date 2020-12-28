@@ -1,0 +1,17 @@
+# Ignore unnecessary files and folders during docker build context
+.gradle
+gradle
+build
+.idea
+*.md
+image
+.gitignore
+gradlew
+gradlew.bat
+.git
+Dockerfile
+docker-compose.yaml
+.dockerignore
+lombok.config
+examples
+gatling

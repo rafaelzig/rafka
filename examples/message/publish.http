@@ -1,0 +1,27 @@
+# Publishes a new message to previously registered topic 'foo'
+## Preconditions
+### Parameter 'foo' must conform with the following regular expression: ^[^\s<>.?:;"*|\\/]{1,127}$
+### Accept header must include media-type application/json
+### Accept-Charset header must include charset utf-8
+### Content-Type header must be 'application/json; charset=utf-8'
+### Content-Length header must be at most 131,072B (128KB)
+### Request body must be valid JSON
+## Success HTTP Response Status Codes
+### 201: Published a new message to previously registered topic 'foo'
+## Failure HTTP Response Status Codes
+### 500: Internal server error
+### 415: Content-Type header is not 'application/json; charset=utf-8'
+### 413: Content-Length header is greater than 131,072B (128KB)
+### 406: Accept does not include media-type application/json or Accept-Charset header does not include charset utf-8
+### 404: Topic 'foo' is not registered
+### 401: Topic 'foo' was registered by another publisher
+### 400: Parameter 'foo' does not conform with the following regular expression: ^[^\s<>.?:;"*|\\/]{1,127}$
+### 400: Request body is not valid JSON
+POST http://localhost/message/publish/foo
+Accept: application/json
+Accept-Charset: utf-8
+Content-Type: application/json; charset=utf-8
+
+{
+  "id": {{$randomInt}}
+}

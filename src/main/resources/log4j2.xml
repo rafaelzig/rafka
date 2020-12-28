@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Configuration packages="com.mercari.merpay.pubsub.logging">
+
+  <Appenders>
+    <Console name="STDOUT" target="SYSTEM_OUT" direct="true">
+      <PatternLayout pattern="%JsonEventConverter%n"/>
+    </Console>
+
+    <Console name="STDERR" target="SYSTEM_ERR" direct="true">
+      <PatternLayout pattern="%JsonEventConverter%n"/>
+    </Console>
+  </Appenders>
+
+  <Loggers>
+    <Logger level="INFO" name="com.mercari.merpay.pubsub" additivity="false">
+      <AppenderRef ref="STDOUT"/>
+    </Logger>
+
+    <Logger level="INFO" name="spark" additivity="false">
+      <AppenderRef ref="STDOUT"/>
+    </Logger>
+
+    <Root level="ERROR">
+      <AppenderRef ref="STDERR"/>
+    </Root>
+  </Loggers>
+
+</Configuration>

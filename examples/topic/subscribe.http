@@ -1,0 +1,16 @@
+# Subscribes to an existing topic 'foo'
+## Preconditions
+### Parameter 'foo' must conform with the following regular expression: ^[^\s<>.?:;"*|\\/]{1,127}$
+### Accept header must include media-type application/json
+### Accept-Charset header must include charset utf-8
+## Success HTTP Response Status Codes
+### 201: Subscribed to an existing topic 'foo'
+## Failure HTTP Response Status Codes
+### 500: Internal server error
+### 409: Topic 'foo' is already subscribed
+### 406: Accept does not include media-type application/json or Accept-Charset header does not include charset utf-8
+### 404: Topic 'foo' is not registered
+### 400: Parameter 'foo' does not conform with the following regular expression: ^[^\s<>.?:;"*|\\/]{1,127}$
+POST http://localhost/topic/subscribe/foo
+Accept: application/json
+Accept-Charset: utf-8

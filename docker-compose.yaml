@@ -59,7 +59,7 @@ services:
         -Drps=200
         -DrampUpDuration=1
         -DholdDuration=1
-    command: --simulation com.mercari.merpay.pubsub.Publisher
+    command: --simulation jp.rafaelzig.rafka.pubsub.Publisher
     volumes:
       - ./gatling/user-files:/opt/gatling/user-files:rw
       - ./gatling/results/publisher:/opt/gatling/results:rw
@@ -80,7 +80,7 @@ services:
         -Drps=200
         -DrampUpDuration=1
         -DholdDuration=1
-    command: --simulation com.mercari.merpay.pubsub.Subscriber
+    command: --simulation jp.rafaelzig.rafka.pubsub.Subscriber
     volumes:
       - ./gatling/user-files:/opt/gatling/user-files:rw
       - ./gatling/results/subscriber:/opt/gatling/results:rw

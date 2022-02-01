@@ -59,7 +59,7 @@ test {
 jar {
     manifest {
         attributes(
-                'Main-Class': 'com.mercari.merpay.pubsub.Rafka',
+                'Main-Class': 'jp.rafaelzig.rafka.pubsub.Rafka',
                 'Class-Path': configurations.runtimeClasspath.files.collect { "dependencies/$it.name" }.join(' ')
         )
     }

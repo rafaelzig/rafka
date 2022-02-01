@@ -1,5 +1,5 @@
 {
-  "simulation": "com.mercari.merpay.pubsub.Publisher",
+  "simulation": "jp.rafaelzig.rafka.pubsub.Publisher",
   "simulationId": "publisher",
   "start": 1609142004263,
   "description": "",

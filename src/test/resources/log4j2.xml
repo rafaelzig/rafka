@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<Configuration packages="com.mercari.merpay.pubsub.logging">
+<Configuration packages="jp.rafaelzig.rafka.pubsub.logging">
 
   <Appenders>
     <Console direct="true" name="STDOUT" target="SYSTEM_OUT">
@@ -12,7 +12,7 @@
   </Appenders>
 
   <Loggers>
-    <Logger additivity="false" level="INFO" name="com.mercari.merpay.pubsub">
+    <Logger additivity="false" level="INFO" name="jp.rafaelzig.rafka.pubsub">
       <AppenderRef ref="STDOUT"/>
     </Logger>
 

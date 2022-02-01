@@ -14,8 +14,8 @@
         1. [Publisher Load Test Results](gatling/results/publisher/baseline/index.html)
         1. [Subscriber Load Test Results](gatling/results/subscriber/baseline/index.html)
     1. Please refer
-       to [Publisher.scala](gatling/user-files/simulations/com/mercari/merpay/pubsub/Publisher.scala)
-       and [Subscriber.scala](gatling/user-files/simulations/com/mercari/merpay/pubsub/Subscriber.scala)
+       to [Publisher.scala](gatling/user-files/simulations/jp/rafaelzig/rafka/pubsub/Publisher.scala)
+       and [Subscriber.scala](gatling/user-files/simulations/jp/rafaelzig/rafka/pubsub/Subscriber.scala)
        for more information about the load test plans.
     1. These can be repeated by running `docker-compose up` on the root directory of this project.
 1. Messages are **NOT** lost unless hardware-level incident.
